@@ -1,3 +1,6 @@
 from django.contrib import admin
+from ipalloc.models import Network,IP
 
-# Register your models here.
+admin.site.register(Network)
+admin.site.register(IP)
+
