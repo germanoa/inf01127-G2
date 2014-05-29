@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }}/ipalloc{% endblock %}
+
+{% block contents %}
+
+    <div>
+        <b>estudo de caso 1</b><br><br>
+        <form action="{% url 'addnetwork' %}" method="post">
+        {% csrf_token %}
+            <b>Cadastrar rede:</b><br>
+            {% for message in messages %}
+                <div class="error" style="color:red">{{ message }}</div><br />
+            {% endfor %}
+            <label for ="netname"> Nome da Rede: </label>
+            <input type="text" name="netname" value="{{ netname|escape }}" id="netname"><br>
+            <label for="addnet"> IP/MASK: </label>
+            <input type="text" name="addnet" value="{{ addnet|escape }}" id="net">
+            <div id="addnet_button"><input type="submit" value="Adicionar" /></div>
+        </form>
+    </div>
+
+    <div>
+        <b>resultados do caso 1</b><br>
+        Lista de redes IP cadastradas:<br><br>
+        {% for net in networks %}
+            <br>{{ net.name }}<br>
+        {% endfor %}
+    </div>
+
+{% endblock contents%}

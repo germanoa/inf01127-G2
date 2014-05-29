@@ -18,7 +18,7 @@ def login(request):
             return redirect('dashboard')
         else:
             error_message = "Nome de usuario ou senha invalidos."
-            return redirect('index')
+            return render(request,'login.html', {"error_message" : error_message})
     else:
         return render(request,'login.html')
 

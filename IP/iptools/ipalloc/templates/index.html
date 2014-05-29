@@ -3,16 +3,13 @@
 {% block title %}{{ block.super }}/ipalloc{% endblock %}
 
 {% block contents %}
-
-	<div>
-	<b>estudo de caso 1</b><br>
-        <form action="" method="post">
-        {% csrf_token %}
-        	<label for="addnet">Cadastrar rede: (IP/MASK) </label>
-                <input type="text" name="addnet" value="{{ net|escape }}" id="net">
-                <div id="addnet_button"><input type="submit" value="Adicionar" /></div>
-        </form>
-	</div>
+    
+    {% if user.is_superuser %}
+    <div id='adminmenu'>
+        <a href ="{% url 'adminmenu' %}"> Menu do Administrador </a>
+        <br><br>
+    </div>
+    {% endif %}
 
 	<div>
 	<b>estudo de caso 2</b><br>
