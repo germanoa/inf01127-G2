@@ -11,7 +11,6 @@ def index(request):
     return render(request,'index.html', )
 
 def add_network(request):
-    
     if request.method == 'POST':
         name = request.POST.get("netname", "")
         try:
@@ -19,19 +18,18 @@ def add_network(request):
         except AddrFormatError as e:
             # forma apropriada de manda mensagens.
             messages.add_message(request, messages.INFO, str(e))
-            return HttpResponseRedirect("adminmenu")
         else:
             new_network = Network(name = name)
-            new_network.save()
-            #ip = IP()
-            ip = new_network.ips.all()[1] #como modificar o ip default para evitar a duplicacao de dados?
-            ip.set_address(unicode(net.ip), 4)
-            ip.set_mask(unicode(net.netmask), 4)
-            #ip.save()
-
-            #new_network.ips.add(ip)  
-            new_network.save()
-            return HttpResponseRedirect("adminmenu")
+            new_network.set_address(unicode(net.ip), 4)
+            new_network.set_mask(unicode(net.netmask), 4)
+            if new_network.is_net():
+                new_network.save()
+            else:
+                error_message = "Informed address is not in a valid\
+                network address format"
+                messages.add_message(request, messages.INFO, error_message)
+        finally:
+            return HttpResponseRedirect("adminmenu") 
     else:
         return redirect('adminmenu')
 
