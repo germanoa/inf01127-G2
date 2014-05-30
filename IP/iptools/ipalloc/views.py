@@ -24,7 +24,7 @@ def add_network(request):
             new_network = Network(name = name)
             new_network.save()
             #ip = IP()
-            ip = new_network.ips.all()[1] #como modificar o ip default para evitar a duplicação de dados?
+            ip = new_network.ips.all()[1] #como modificar o ip default para evitar a duplicacao de dados?
             ip.set_address(unicode(net.ip), 4)
             ip.set_mask(unicode(net.netmask), 4)
             #ip.save()
