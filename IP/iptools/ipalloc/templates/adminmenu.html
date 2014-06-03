@@ -5,7 +5,6 @@
 {% block contents %}
 
     <div>
-        <b>estudo de caso 1</b><br><br>
         <form action="{% url 'addnetwork' %}" method="post">
         {% csrf_token %}
             <b>Cadastrar rede:</b><br>
@@ -21,11 +20,21 @@
     </div>
 
     <div>
-        <b>resultados do caso 1</b><br>
-        Lista de redes IP cadastradas:<br><br>
-        {% for net in networks %}
-            <br>{{ net.name }}<br>
+        <b>Redes disponíveis para alocar para gerentes</b><br>
+	Gerente:
+	<select name="manager">
+        {% for user in users %}
+	    <option value="{{ user.username }}">{{ user.username }}</option>
         {% endfor %}
+	</select>
+
+	Escolha a(s) rede(s) para o gerente selecionado:<br>
+        {% for net in networks %}
+            <br>
+	    <input type="checkbox" name="net" value="{{ net.name }}">
+	    {{ net.name }} - {{ net.address }}<br>
+        {% endfor %}
+            <div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
     </div>
 
 {% endblock contents%}

@@ -6,9 +6,17 @@ from ipalloc.models import Network, IP
 
 from netaddr import IPNetwork, AddrFormatError
 
+from django.contrib.auth.models import User
+
 @login_required(login_url='/')
 def index(request):
     return render(request,'index.html', )
+
+def select_manager_to_network(request):
+    if request.method == 'POST':
+        manager = request.POST.get("manager", "")
+        # 1.para cada rede marcada
+        #    seta var manager
 
 def add_network(request):
     if request.method == 'POST':
@@ -35,5 +43,6 @@ def add_network(request):
 
 def adminmenu(request):
     networks = Network.objects.all()
+    users = User.objects.all()
     if request.user.is_superuser:
-        return render(request, "adminmenu.html", {"networks" : networks})
+        return render(request, "adminmenu.html", {"networks" : networks, "users" : users})
