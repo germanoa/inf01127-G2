@@ -20,6 +20,7 @@
     </div>
 
     <div>
+        <form action="{% url 'select_manager_to_network' %}" method="post">
         <b>Redes disponíveis para alocar para gerentes</b><br>
 	Gerente:
 	<select name="manager">
@@ -32,9 +33,10 @@
         {% for net in networks %}
             <br>
 	    <input type="checkbox" name="net" value="{{ net.name }}">
-	    {{ net.name }} - {{ net.address }}<br>
+	    {{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
         {% endfor %}
             <div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
+	</form>
     </div>
 
 {% endblock contents%}

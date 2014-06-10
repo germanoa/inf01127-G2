@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 class IP(models.Model):
     address = models.IntegerField(default=0)
@@ -66,4 +67,8 @@ class Network(IP):
     
     def __unicode__(self):
         return self.name
+
+class ManagerToNetwork(forms.Form):
+    manager = forms.ChoiceField()
+        
 

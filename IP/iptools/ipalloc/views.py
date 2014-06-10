@@ -43,6 +43,9 @@ def add_network(request):
 
 def adminmenu(request):
     networks = Network.objects.all()
+    #networks_dotted = []
+    #for n in networks:
+    #    networks_dotted.append(n.get_address())        
     users = User.objects.all()
     if request.user.is_superuser:
         return render(request, "adminmenu.html", {"networks" : networks, "users" : users})
