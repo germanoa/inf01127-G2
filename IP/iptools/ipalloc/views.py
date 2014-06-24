@@ -13,14 +13,21 @@ def index(request):
     return render(request,'index.html', )
 
 def ip2manager(request):
-    networks = Network.objects.all()
+    #networks = Network.objects.all()
+    networks = Network.objects.filter(administrator=None)
     users = User.objects.all()
     if request.method == 'POST':
         manager = request.POST.get("manager", "")
-
-        
-        # 1.para cada rede marcada
-        #    seta var manager
+        net = request.POST.get("net","")
+        for u in users:
+            if (u.username == manager):
+                user = u
+        for n in networks:
+            if (n.name == net):
+                net = n
+        net.administrator=user
+        net.save()
+        return render(request,'ip2manager.html', )
     elif request.user.is_superuser:
         return render(request, "ip2manager.html", {"networks" : networks, "users" : users})
     #return render(request,'ip2manager.html', )

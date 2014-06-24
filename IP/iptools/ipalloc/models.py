@@ -62,13 +62,9 @@ class IP(models.Model):
 class Network(IP):
     name = models.CharField(max_length=256)
     administrator = models.ForeignKey(User, null=True)
-    subnets = models.ManyToManyField('self', null=True)
-    ips = models.ManyToManyField(IP, related_name="ips")
+    subnets = models.ManyToManyField('self', null=True, blank=True)
+    ips = models.ManyToManyField(IP, related_name="ips", null=True, blank=True)
     
     def __unicode__(self):
         return self.name
-
-class ManagerToNetwork(forms.Form):
-    manager = forms.ChoiceField()
-        
 

@@ -6,6 +6,7 @@
 
     <div>
         <form action="{% url 'ip2manager' %}" method="post">
+	{% csrf_token %}
         Selecione o gerente: 
 	<select name="manager">
         {% for user in users %}
@@ -18,7 +19,7 @@
 	Escolha a(s) rede(s) para o gerente selecionado:<br>
         {% for net in networks %}
             <br>
-	    <input type="checkbox" name="net" value="{{ net.name }}">
+	    <input type="radio" name="net" value="{{ net.name }}">
 	    {{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
         {% endfor %}
             <br><div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
