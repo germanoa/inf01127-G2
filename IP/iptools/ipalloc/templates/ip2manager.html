@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }}/ipalloc{% endblock %}
+
+{% block contents %}
+
+    <div>
+        <form action="{% url 'ip2manager' %}" method="post">
+        Selecione o gerente: 
+	<select name="manager">
+        {% for user in users %}
+	    <option value="{{ user.username }}">{{ user.username }}</option>
+        {% endfor %}
+	</select>
+
+	<br><br>
+	
+	Escolha a(s) rede(s) para o gerente selecionado:<br>
+        {% for net in networks %}
+            <br>
+	    <input type="checkbox" name="net" value="{{ net.name }}">
+	    {{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
+        {% endfor %}
+            <br><div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
+	</form>
+    </div>
+
+{% endblock contents%}
