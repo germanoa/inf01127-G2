@@ -12,11 +12,21 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,'index.html', )
 
-def select_manager_to_network(request):
+def ip2manager(request):
+    networks = Network.objects.all()
+    users = User.objects.all()
     if request.method == 'POST':
         manager = request.POST.get("manager", "")
+
+        
         # 1.para cada rede marcada
         #    seta var manager
+    elif request.user.is_superuser:
+        return render(request, "ip2manager.html", {"networks" : networks, "users" : users})
+    #return render(request,'ip2manager.html', )
+
+def confsystem(request):
+    return render(request,'confsystem.html', )
 
 def add_network(request):
     if request.method == 'POST':
@@ -43,9 +53,6 @@ def add_network(request):
 
 def adminmenu(request):
     networks = Network.objects.all()
-    #networks_dotted = []
-    #for n in networks:
-    #    networks_dotted.append(n.get_address())        
     users = User.objects.all()
     if request.user.is_superuser:
         return render(request, "adminmenu.html", {"networks" : networks, "users" : users})

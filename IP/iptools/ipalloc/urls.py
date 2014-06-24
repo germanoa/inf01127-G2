@@ -5,6 +5,7 @@ from ipalloc import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name="index"),
     url(r'^addnetwork/', views.add_network, name="addnetwork"),
-    url(r'^select_manager_to_network/', views.select_manager_to_network, name="select_manager_to_network"),
-    url(r'^adminmenu/', views.adminmenu, name="adminmenu")
+    url(r'^adminmenu/', views.adminmenu, name="adminmenu"),
+    url(r'^ip2manager/', views.ip2manager, name="ip2manager"),
+    url(r'^confsystem/', views.confsystem, name="confsystem")
 )

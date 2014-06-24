@@ -6,13 +6,23 @@
     
     {% if user.is_superuser %}
     <div id='adminmenu'>
-        <a href ="{% url 'adminmenu' %}"> Menu do Administrador </a>
+        <a href ="{% url 'adminmenu' %}">Cadastrar Rede IP</a>
         <br><br>
     </div>
     {% endif %}
 
-	<div>
-	<b>estudo de caso 2</b><br>
-	Gerenciar bloco de gerente
-	</div>
+    {% if user.is_superuser %}
+    <div id='ip2manager'>
+        <a href ="{% url 'ip2manager' %}">Gerenciar bloco de gerente</a>
+        <br><br>
+    </div>
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <div id='confsystem'>
+        <a href ="{% url 'confsystem' %}">Configuracao atual do sistema</a>
+        <br><br>
+    </div>
+    {% endif %}
+
 {% endblock contents%}
