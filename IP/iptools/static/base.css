@@ -1,18 +1,416 @@
+a:link {
+	color: white;
+	font-family: arial;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:visited {
+	color: white;
+	font-family: arial;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	font-family: arial;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 body {
 	font-family: arial;
-	background-color: white;
-	color: black;
+	background-color: rgb(150,186,235);
+	color: rgb(68,132,219);
+}
+
+html {
+   width:100%;
+   height:100%;
+   background:url(logo.png) center center no-repeat;
+}
+
+img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
+}
+
+.box-1 {
+	border: 2px solid #4484db;
+	width:300px;
+	margin:10px;
+	padding:10px;
+	background:#d8d7d7;
+	color:black;
+	margin: 0 auto;
 	position: relative;
 }
 
-#logout {
-	position: absolute;
-        top: 0px; 
-	right: 0px;
+#h1{
+position: fixed;	
+left:10px;
 }
 
-#home {
+#login_form_content {
 	position: absolute;
-        top: 0px; 
-	right: 60px;
+	
+	top: 100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
 }
+
+#username{
+	position: absolute;
+	right:75px;
+}
+
+#password{
+	position: absolute;
+	right:75px;
+}
+
+
+
+#login_button{
+	position:absolute;
+	left: 140px;
+	bottom: 15px;
+}
+
+#logout {
+	position: relative;
+        top: 100px; 
+	right: 100px;
+}
+
+body {
+   font-family: arial;
+   background-color: rgb(150,186,235);
+   color: rgb(68,132,219);
+}
+
+html {
+   width:100%;
+   height:100%;
+   background:url(logo.png) center center no-repeat;
+}
+
+img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
+}
+
+.box-1 {
+   border: 2px solid #4484db;
+   width:300px;
+   margin:10px;
+   padding:10px;
+   background:#d8d7d7;
+   color:black;
+   margin: 0 auto;
+   position: relative;
+}
+
+#operation_form {
+   position: absolute;
+   
+   top: 100px;
+   bottom: 100px;
+   left: 100px;
+   right: 100px;
+}
+
+/*#net{
+   position: absolute;
+   right:30px;
+}*/
+
+/*#netname{
+   position: absolute;
+   right:30px;
+}*/
+
+#addnet_button{
+   position:absolute;
+   left: 130px;
+   bottom: 5px;
+}
+
+#logout {
+   position: fixed;
+   top: 10px; 
+   right: 20px;
+}
+
+
+body {
+   font-family: arial;
+   background-color: rgb(150,186,235);
+   color: rgb(68,132,219);
+}
+
+html {
+   width:100%;
+   height:100%;
+   background:url(logo.png) center center no-repeat;
+}
+
+img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
+}
+
+.box-1 {
+   border: 2px solid #4484db;
+   width:300px;
+   margin:10px;
+   padding:10px;
+   background:#d8d7d7;
+   color:black;
+   margin: 0 auto;
+   position: relative;
+}
+
+#IP_icon{
+   position: absolute;
+   width: 22px;
+   height: 22px;
+   margin: -53 auto;
+   left: 20px;
+}
+
+#manager_icon{
+   position: absolute;
+   width: 22px;
+   height: 22px;
+   margin: -14 auto;
+   left: 20px;
+}
+
+#config_icon{
+   position: absolute;
+   width: 22px;
+   height: 22px;
+   margin: 26 auto;
+   left: 20px;
+}
+#h1{
+position: absolute;  
+left:10px;
+}
+
+#operation_form {
+   position: absolute;
+   
+   top: 100px;
+   bottom: 100px;
+   left: 100px;
+   right: 100px;
+}
+
+#adminmenu{
+   position:absolute;
+   left: 55px;
+   bottom: 120px;
+}
+
+#ip2manager{
+   position:absolute;
+   left: 55px;
+   bottom: 80px;
+}
+
+#confsystem{
+   position:absolute;
+   left: 55px;
+   bottom: 40px;
+}
+
+
+
+#logout {
+	position: fixed;
+   top: 10px; 
+	right: 20px;
+}
+
+body {
+   font-family: arial;
+   background-color: rgb(150,186,235);
+   color: rgb(68,132,219);
+}
+
+html {
+   width:100%;
+   height:100%;
+   background:url(logo.png) center center no-repeat;
+}
+
+img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
+}
+
+.box-1 {
+   border: 2px solid #4484db;
+   width:300px;
+   margin:10px;
+   padding:10px;
+   background:#d8d7d7;
+   color:black;
+   margin: 0 auto;
+   position: relative;
+}
+
+#operation_form {
+   position: absolute;
+   
+   top: 100px;
+   bottom: 100px;
+   left: 100px;
+   right: 100px;
+}
+#logout {
+   position: fixed;
+   top: 10px; 
+   right: 20px;
+}
+
+
+body {
+   font-family: arial;
+   background-color: rgb(150,186,235);
+   color: rgb(68,132,219);
+}
+
+html {
+   width:100%;
+   height:100%;
+   background:url(logo.png) center center no-repeat;
+}
+
+img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
+html, body, #wrapper {
+   height:100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+#wrapper td {
+   vertical-align: middle;
+   text-align: center;
+}
+
+.box-1 {
+   border: 2px solid #4484db;
+   width:350px;
+   margin:10px;
+   padding:10px;
+   background:#d8d7d7;
+   color:black;
+   margin: 0 auto;
+   position: relative;
+}
+
+#operation_form {
+   position: absolute;
+   
+   top: 100px;
+   bottom: 100px;
+   left: 100px;
+   right: 100px;
+}
+
+#selectnet_button{   
+   position:absolute;
+   left: 210px;
+   bottom: 15px;
+}
+
+#logout {
+   position: fixed;
+   top: 10px; 
+   right: 20px;
+}
+
+

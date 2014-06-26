@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block contents %}
-    <div id="login_form_content">
+    <div id="login_form_content" class="box-1">
         <h1 style="text-align: center; width: 100%;">iptools</h1>
         {% if error_message %}
             <div class="error" style="color:red">{{ error_message }}</div><br />
@@ -9,7 +9,7 @@
   
         <form action="" method="post">
         {% csrf_token %}
-        	<label for="username">Nome de usu&aacute;rio:</label>
+        	<label for="username">Usu&aacute;rio:</label>
                 <input type="text" name="username" value="{{ username|escape }}" id="username">
 		<br><br>
                 <label for="password">Senha:</label>
