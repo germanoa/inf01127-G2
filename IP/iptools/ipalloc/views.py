@@ -12,6 +12,27 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,'index.html', )
 
+def ipdelmanager(request):
+    networks = Network.objects.all()
+    users = User.objects.all()
+    if request.method == 'POST':
+        manager = request.POST.get("manager", "")
+        net = request.POST.get("net","")
+        for u in users:
+            if (u.username == manager):
+                user = u
+        for n in networks:
+            if (n.name == net):
+                net = n
+        if net:
+            net.administrator=None
+            net.save()
+        networks = Network.objects.filter(administrator=user)
+        return render(request, "ipdelmanager.html", {"networks" : networks, "users" : users})
+    elif request.user.is_superuser:
+        return render(request, "ipdelmanager.html", {"users" : users})
+
+
 def ip2manager(request):
     #networks = Network.objects.all()
     networks = Network.objects.filter(administrator=None)
@@ -25,9 +46,11 @@ def ip2manager(request):
         for n in networks:
             if (n.name == net):
                 net = n
-        net.administrator=user
-        net.save()
-        return render(request,'ip2manager.html', )
+        if net:
+            net.administrator=user
+            net.save()
+        networks = Network.objects.filter(administrator=None)
+        return render(request, "ip2manager.html", {"networks" : networks, "users" : users, "manager": manager})
     elif request.user.is_superuser:
         return render(request, "ip2manager.html", {"networks" : networks, "users" : users})
     #return render(request,'ip2manager.html', )

@@ -5,24 +5,25 @@
 {% block contents %}
 
     <div>
-        <form action="{% url 'ip2manager' %}" method="post">
+        <form action="{% url 'ipdelmanager' %}" method="post">
 	{% csrf_token %}
-        Selecione o gerente: 
-	<select name="manager" selected="{{ manager.manager }}">
+        Gerente: 
+	<select name="manager">
         {% for user in users %}
 	    <option value="{{ user.username }}">{{ user.username }}</option>
         {% endfor %}
 	</select>
+        <input type="submit" name="selectmanager_button" value="Selecionar"/>
 
 	<br><br>
 	
-	Nova rede para o gerente selecionado:<br>
+	Selecione rede para desalocar do gerente:<br>
         {% for net in networks %}
             <br>
 	    <input type="radio" name="net" value="{{ net.name }}">
 	    {{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
         {% endfor %}
-            <br><div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
+            <br><input type="submit" name="selectnet_button" value="Desalocar"/>
 	</form>
     </div>
 

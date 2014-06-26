@@ -11,3 +11,8 @@ body {
 	right: 0px;
 }
 
+#home {
+	position: absolute;
+        top: 0px; 
+	right: 60px;
+}

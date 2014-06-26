@@ -13,7 +13,14 @@
 
     {% if user.is_superuser %}
     <div id='ip2manager'>
-        <a href ="{% url 'ip2manager' %}">Gerenciar bloco de gerente</a>
+        <a href ="{% url 'ip2manager' %}">Adicionar bloco para gerente</a>
+        <br><br>
+    </div>
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <div id='ipdelmanager'>
+        <a href ="{% url 'ipdelmanager' %}">Remover bloco de gerente</a>
         <br><br>
     </div>
     {% endif %}
