@@ -1,35 +1,7 @@
-{% extends "base.html" %}
+{% extends "menu.html" %}
 
 {% block title %}{{ block.super }}/ipalloc{% endblock %}
 
 {% block contents %}
     
-    {% if user.is_superuser %}
-    <div id='adminmenu'>
-        <a href ="{% url 'adminmenu' %}">Cadastrar Rede IP</a>
-        <br><br>
-    </div>
-    {% endif %}
-
-    {% if user.is_superuser %}
-    <div id='ip2manager'>
-        <a href ="{% url 'ip2manager' %}">Adicionar bloco para gerente</a>
-        <br><br>
-    </div>
-    {% endif %}
-
-    {% if user.is_superuser %}
-    <div id='ipdelmanager'>
-        <a href ="{% url 'ipdelmanager' %}">Remover bloco de gerente</a>
-        <br><br>
-    </div>
-    {% endif %}
-
-    {% if user.is_superuser %}
-    <div id='confsystem'>
-        <a href ="{% url 'confsystem' %}">Configuracao atual do sistema</a>
-        <br><br>
-    </div>
-    {% endif %}
-
 {% endblock contents%}
