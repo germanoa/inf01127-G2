@@ -2,11 +2,51 @@
 
 {% block title %}{{ block.super }}/ipalloc{% endblock %}
 
-{% block contents %}
+
 
 	algo do tipo:
 	
 	manager:
 		lista de redes    
+
+
+
+{{ block.super }}/ipalloc
+
+{% block contents %}
+
+    <div class="box-1">
+        <form action="{% url 'ip2manager' %}" method="post">
+	{% csrf_token %}
+<!--
+	<select name="manager" selected="{{ manager.manager }}">-->
+        {% for user in users %}
+		
+			Gerente: {{ user.username }}<br>
+			{% for net in networks %}
+				{% if net.administrator == user %}
+					<br>
+					<input type="radio" name="net" value="{{ net.name }}">
+					{{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
+				{% endif %}
+			{% endfor %}<br><br>
+			   <!-- <br><div id="selectnet_button"><input type="submit" value="Selecionar" /></div>-->
+        {% endfor %}
+		
+		Redes sem gerente:<br>
+		{% for net in networks %}
+			{% if net.administrator == null %}
+				<br>
+				<input type="radio" name="net" value="{{ net.name }}">
+				{{ net.name }} - {{ net.get_address }}/{{ net.get_mask }} <br>
+			{% endif %}
+		{% endfor %}<br><br>
+	</select>
+
+	<br><br>
+	
+	
+	</form>
+    </div>
 
 {% endblock contents%}

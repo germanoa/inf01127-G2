@@ -56,7 +56,9 @@ def ip2manager(request):
     #return render(request,'ip2manager.html', )
 
 def confsystem(request):
-    return render(request,'confsystem.html', )
+    networks = Network.objects.all()
+    users = User.objects.all()
+    return render(request,'confsystem.html', {"networks" : networks, "users" : users})
 
 def add_network(request):
     if request.method == 'POST':
