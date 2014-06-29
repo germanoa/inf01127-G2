@@ -3,7 +3,7 @@
 {% block title %}{{ block.super }}/ipalloc{% endblock %}
 
 {% block contents %}
-
+<div id ="operation_form">
     <div class="box-1">
         <form action="{% url 'ip2manager' %}" method="post">
 	{% csrf_token %}
@@ -25,5 +25,6 @@
             <br><div id="selectnet_button"><input type="submit" value="Selecionar" /></div>
 	</form>
     </div>
+</div>
 
 {% endblock contents%}

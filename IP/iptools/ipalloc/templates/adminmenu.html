@@ -4,19 +4,23 @@
 
 {% block contents %}
 
+<div id ="operation_form">
     <div class="box-1">
+        <b>Cadastrar rede</b><br>
         <form action="{% url 'addnetwork' %}" method="post">
         {% csrf_token %}
-            <b>Cadastrar rede</b><br>
+            
             {% for message in messages %}
                 <div class="error" style="color:red">{{ message }}</div><br />
             {% endfor %}
-            <label for ="netname">Nome da Rede: </label>
-            <input type="text" name="netname" value="{{ netname|escape }}" id="netname"><br>
+            <label for ="netname">Nome da Rede: </label><br><br>
+            <input type="text" name="netname" value="{{ netname|escape }}" id="netname">
             <label for="addnet"> IP/MASK: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="addnet" value="{{ addnet|escape }}" id="net">
+            <br><br>
             <div id="addnet_button"><input type="submit" value="Adicionar" /></div>
         </form>
     </div>
+</div>
 
 {% endblock contents%}
